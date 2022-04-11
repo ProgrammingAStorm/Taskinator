@@ -1,9 +1,13 @@
-var createTaskHandler = function() {
-    var taskItemEl = document.createElement("li");
-    taskItemEl.textContent = "Poop";
-    taskItemEl.className = "task-item";
+var formEl = document.querySelector("#task-form"); 
+var tasksToDoEl = document.querySelector("#tasks-to-do"); 
 
-    document.querySelector("#tasks-to-do").appendChild(taskItemEl);
-}
+var createTaskHandler = function(event) { 
+  event.preventDefault(); 
 
-document.querySelector(".btn").addEventListener("click", createTaskHandler);
+  var listItemEl = document.createElement("li"); 
+  listItemEl.className = "task-item"; 
+  listItemEl.textContent = "This is a new task."; 
+  tasksToDoEl.appendChild(listItemEl); 
+  }; 
+
+  formEl.addEventListener("submit", createTaskHandler);
